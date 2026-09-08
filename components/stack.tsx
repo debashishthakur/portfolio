@@ -13,9 +13,21 @@ export function Stack() {
         {stackIcons.map(({ slug, label, dark }) => (
           <span
             key={slug}
-            title={label}
-            className="flex size-8 items-center justify-center transition-transform duration-200 ease-out hover:scale-110"
+            className="group relative flex size-8 items-center justify-center transition-transform duration-200 ease-out hover:scale-110"
           >
+            {/* Instant tooltip — no native-title delay. Inverted chip, same
+                voice as text selection; screen readers already get the label
+                from the img alt. */}
+            <span
+              role="tooltip"
+              className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 translate-y-1 scale-95 rounded-md bg-foreground px-2 py-1 font-mono text-[0.6875rem] leading-4 whitespace-nowrap text-background opacity-0 shadow-[0_4px_12px_-4px_rgb(0_0_0/0.4)] transition-all duration-100 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100"
+            >
+              {label}
+              <span
+                aria-hidden="true"
+                className="absolute top-full left-1/2 -mt-1 size-2 -translate-x-1/2 rotate-45 bg-foreground"
+              />
+            </span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={`/stack/${slug}.svg`}

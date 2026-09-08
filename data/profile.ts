@@ -58,7 +58,7 @@ export const stackIcons = [
   { slug: "cplusplus", label: "C++" },
   { slug: "langchain", label: "LangChain" },
   { slug: "claude", label: "Claude" },
-  { slug: "mcp", label: "Model Context Protocol", dark: true },
+  { slug: "mcp", label: "MCP", dark: true },
   { slug: "pytorch", label: "PyTorch" },
   { slug: "tensorflow", label: "TensorFlow", dark: true },
   { slug: "huggingface", label: "Hugging Face" },
