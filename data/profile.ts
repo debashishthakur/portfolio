@@ -185,7 +185,6 @@ export const projects: Project[] = [
     href: "https://github.com/debashishthakur/lekhak-extension",
     bullets: [
       "Chrome extension for multi-LLM inference from anywhere in the browser, published on the Chrome Web Store.",
-      "100+ active users, and roughly 60% off content creation time for the people who live in it.",
       "Routes a single prompt across providers so you can compare answers without leaving the page.",
     ],
     tags: ["TypeScript", "Chrome Extension", "Anthropic API", "Vite"],
