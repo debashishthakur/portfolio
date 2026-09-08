@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------- tokens */
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #62626b;
+  --border: #e4e4e7;
+  --accent: #047857;
+  --info: #2563eb;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --border: #27272a;
+  --accent: #34d399;
+  --info: #60a5fa;
+}
+
+/* The rules that structure the page sit one step quieter than a real border,
+   so a panel edge never competes with the content inside it. */
+:root,
+.dark {
+  --edge: color-mix(in oklab, var(--border) 66%, var(--background));
+  --pattern-fg: color-mix(in oklab, var(--edge) 56%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-edge: var(--edge);
+  --color-accent: var(--accent);
+  --color-info: var(--info);
+
+  --font-sans: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, monospace;
+  --font-script: var(--font-script-face), ui-serif, cursive;
+}
+
+/* ------------------------------------------------------------------ base */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  /* clip, not hidden — hidden here would break the sticky header. */
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  /* No background on <html>: this one propagates to the canvas, which is what
+     lets the negative-z hairlines below paint above it. */
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Browser surfaces belong to the design too. */
+::selection {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border: 3px solid var(--background);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted-foreground);
+}
+
+/* --------------------------------------------------------------- ruling */
+
+/* Hairlines that break out of the content column and run to both screen
+   edges. `calc(50% - 50vw)` resolves to the negative of a centered column's
+   left offset, so they land exactly on the viewport without overflowing it. */
+.screen-line-before,
+.screen-line-after {
+  position: relative;
+}
+
+.screen-line-before::before,
+.screen-line-after::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 50vw);
+  z-index: -1;
+  width: 100vw;
+  height: 1px;
+  background-color: var(--edge);
+}
+
+.screen-line-before::before {
+  top: 0;
+}
+
+.screen-line-after::after {
+  bottom: 0;
+}
+
+.border-edge {
+  border-color: var(--edge);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------- pattern */
+
+/* The striped band that separates one panel from the next. It runs the full
+   width of the viewport, like the hairlines. */
+.hatch-band {
+  position: relative;
+  display: flex;
+  height: 2rem;
+  width: 100%;
+}
+
+.hatch-band::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50vw);
+  z-index: -1;
+  width: 100vw;
+  height: 2rem;
+  background-image: repeating-linear-gradient(
+    315deg,
+    var(--pattern-fg) 0,
+    var(--pattern-fg) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+}
+
+.dot-grid {
+  background-image: radial-gradient(var(--pattern-fg) 1px, transparent 0);
+  background-size: 10px 10px;
+  background-position: center;
+}
+
+/* --------------------------------------------------------------- motion */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@keyframes ping-soft {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* One authored entrance, on the hero only. Everything below the fold is
+   already where it belongs when you scroll to it. */
+.rise {
+  animation: rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+.ping-soft {
+  animation: ping-soft 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .ping-soft {
+    animation: none;
+  }
+}
