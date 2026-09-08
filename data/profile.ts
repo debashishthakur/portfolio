@@ -13,10 +13,10 @@ export const profile = {
 
 export const links = [
   {
-    label: "GitHub",
-    handle: "debashishthakur",
-    href: "https://github.com/debashishthakur",
-    icon: "github" as const,
+    label: "Resume",
+    handle: "One page, PDF",
+    href: "/Debashish_Thakur_Resume.pdf",
+    icon: "file" as const,
   },
   {
     label: "LinkedIn",
@@ -31,10 +31,10 @@ export const links = [
     icon: "mail" as const,
   },
   {
-    label: "Resume",
-    handle: "One page, PDF",
-    href: "/Debashish_Thakur_Resume.pdf",
-    icon: "file" as const,
+    label: "GitHub",
+    handle: "debashishthakur",
+    href: "https://github.com/debashishthakur",
+    icon: "github" as const,
   },
 ];
 

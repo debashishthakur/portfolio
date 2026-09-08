@@ -1,4 +1,4 @@
-import { ArrowUpRight, FileText, Mail } from "lucide-react";
+import { ArrowUpRight, FileUser, Mail } from "lucide-react";
 import { Panel } from "@/components/panel";
 import { links } from "@/data/profile";
 
@@ -15,9 +15,11 @@ const tiles: Record<
     chrome: "bg-[#EA4335] text-white",
     node: <Mail className="size-6" strokeWidth={1.75} />,
   },
+  /* The resume tile wears the favicon's gold so it reads as the one tile that
+     is asking to be clicked — dark ink for contrast, person-on-document glyph. */
   file: {
-    chrome: "bg-foreground text-background",
-    node: <FileText className="size-6" strokeWidth={1.75} />,
+    chrome: "bg-gradient-to-b from-[#fde047] to-[#f59e0b] text-[#1c1917]",
+    node: <FileUser className="size-6" strokeWidth={1.75} />,
   },
 };
 

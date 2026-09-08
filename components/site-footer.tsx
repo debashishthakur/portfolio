@@ -1,4 +1,4 @@
-import { FileText, Mail } from "lucide-react";
+import { FileUser, Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { profile } from "@/data/profile";
 
@@ -21,7 +21,7 @@ const feet = [
   {
     label: "Resume",
     href: "/Debashish_Thakur_Resume.pdf",
-    icon: <FileText className="size-4" strokeWidth={1.5} />,
+    icon: <FileUser className="size-4" strokeWidth={1.5} />,
   },
 ];
 
