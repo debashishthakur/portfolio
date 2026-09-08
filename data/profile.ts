@@ -39,7 +39,7 @@ export const links = [
 ];
 
 export const about = {
-  lead: "AI/LLM engineer with 2+ years building and shipping production-grade agent systems.",
+  lead: "AI/LLM engineer with 3 years building and shipping production-grade agent systems.",
   bullets: [
     "I lead agent engineering at BlueBear AI, building multi-agent workflows, MCP servers and structured-output pipelines for B2B automation.",
     "I write the guardrails too — skill- and rule-based access controls that decide what an agent may touch before it touches it.",
@@ -194,7 +194,7 @@ export const projects: Project[] = [
   {
     name: "The Prompt Craft",
     icon: "promptcraft",
-    site: null,
+    site: "https://the-prompt-craft.vercel.app",
     start: "05.2025",
     end: null,
     href: "https://github.com/debashishthakur/the-prompt-craft",
