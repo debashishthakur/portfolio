@@ -57,6 +57,20 @@ on near-black violet, recreated as styled text because that is how lekhakai.com
 itself renders it — there is no image asset to download. The other two use drawn
 lucide glyphs on their product color.
 
+## The visitor counter
+
+The eye in the header shows unique visitors. "Unique" means one count per
+browser: `/api/pulse` sets a year-long first-party cookie on a visitor's first
+request and increments a single Redis integer; later requests only read. No
+IPs, no fingerprinting — the only thing stored anywhere is the running total.
+(The route is named `pulse` so adblock filter lists do not eat it.)
+
+It needs one piece of setup: in the Vercel project, **Storage → Create Database
+→ Upstash Redis** (free tier) → connect to this project. That injects
+`KV_REST_API_URL` / `KV_REST_API_TOKEN` and the next deploy starts counting.
+Until then the API returns `{ count: null }` and the widget stays hidden —
+nothing breaks.
+
 ## The GitHub heatmap (currently not shown)
 
 The contribution graph is unmounted from the page, but everything it needs is

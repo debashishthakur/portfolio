@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { VisitorCount } from "@/components/visitor-count";
 import { GitHubIcon } from "@/components/icons";
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
@@ -32,6 +33,8 @@ export function SiteHeader() {
         </a>
 
         <div className="flex items-center">
+          <VisitorCount />
+
           <a
             href={`https://github.com/${profile.github}`}
             target="_blank"

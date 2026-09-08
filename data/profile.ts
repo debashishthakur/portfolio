@@ -121,10 +121,12 @@ export const experience: Company[] = [
   },
   {
     company: "Ayna AI",
-    href: null,
+    href: "https://www.getayna.com",
     current: false,
-    logo: "/logos/ayna.svg",
-    logoWide: true,
+    /* ayna-mark.svg is ayna.svg with the viewBox tightened to the spiral
+       (measured at 0,15 → 180,195), so the circle fills the plate. */
+    logo: "/logos/ayna-mark.svg",
+    logoWide: false,
     roles: [
       {
         title: "Founding ML Engineer",
