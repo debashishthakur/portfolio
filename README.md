@@ -54,8 +54,9 @@ wordmark to mush at 24px.
 
 Project rows each carry a mark: LekhakAI's is the Devanagari "ले" in glow-blue
 on near-black violet, recreated as styled text because that is how lekhakai.com
-itself renders it — there is no image asset to download. The other two use drawn
-lucide glyphs on their product color.
+itself renders it — there is no image asset to download. Second Brain's is the
+2brain.debawho.xyz favicon redrawn inline (pale ring, orange core, near-black
+plate). The other two use drawn lucide glyphs on their product color.
 
 ## The visitor counter
 

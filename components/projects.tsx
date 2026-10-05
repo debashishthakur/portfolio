@@ -4,8 +4,9 @@ import { projects, type Project } from "@/data/profile";
 
 /* LekhakAI's mark is the Devanagari "ले" in glow-blue on near-black violet —
    the site renders it as styled text, so this recreates it the same way
-   rather than rasterizing it. The other two wear drawn glyphs on their own
-   product color so the column reads as a set. */
+   rather than rasterizing it. Second Brain's is the 2brain.debawho.xyz favicon
+   redrawn as inline SVG. The other two wear drawn glyphs on their own product
+   color so the column reads as a set. */
 function ProjectMark({ icon }: { icon: Project["icon"] }) {
   const chrome =
     "grid size-10 shrink-0 place-items-center rounded-xl ring-1 ring-black/10 ring-inset select-none dark:ring-white/15";
@@ -23,6 +24,16 @@ function ProjectMark({ icon }: { icon: Project["icon"] }) {
     return (
       <span className={`${chrome} bg-[#7C3AED] text-white`} aria-hidden="true">
         <Terminal className="size-5" strokeWidth={1.75} />
+      </span>
+    );
+  }
+  if (icon === "secondbrain") {
+    return (
+      <span className={`${chrome} bg-[#0a0a0b]`} aria-hidden="true">
+        <svg viewBox="0 0 32 32" className="size-6">
+          <circle cx="16" cy="16" r="9" fill="none" stroke="#ededeb" strokeWidth="2.2" />
+          <circle cx="16" cy="16" r="4.6" fill="#ff7a2f" />
+        </svg>
       </span>
     );
   }
