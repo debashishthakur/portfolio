@@ -180,6 +180,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Second Brain",
+    icon: "secondbrain",
+    site: "https://2brain.debawho.xyz",
+    start: "09.2026",
+    end: null,
+    href: "https://github.com/debashishthakur/brain-mcp",
+    bullets: [
+      "Open-source MCP server that turns an Obsidian vault into live, private context for Claude and any MCP client: who you are, what you are working on, and tools to search, follow links and write back.",
+      "Hybrid retrieval that never leaves the machine — section BM25 and bge-small embeddings fused with RRF, a cross-encoder reranker, and a floor that answers \"nothing relevant\" instead of guessing.",
+      "Public over OAuth 2.1 behind Cloudflare Tunnel, with read, write and private scopes, credential redaction and an audit line for every call. Any ranking change has to beat the bundled evals first.",
+    ],
+    tags: ["TypeScript", "MCP", "SQLite FTS5", "Embeddings", "OAuth 2.1"],
+  },
+  {
     name: "LekhakAI",
     icon: "lekhak",
     site: "https://www.lekhakai.com",
@@ -218,20 +232,6 @@ export const projects: Project[] = [
       "Backed by a 65-test suite, because a tool that mangles documents quietly is worse than no tool at all.",
     ],
     tags: ["Python", "PDF", "Local-first", "Pytest"],
-  },
-  {
-    name: "Second Brain",
-    icon: "secondbrain",
-    site: "https://2brain.debawho.xyz",
-    start: "09.2026",
-    end: null,
-    href: "https://github.com/debashishthakur/brain-mcp",
-    bullets: [
-      "Open-source MCP server that turns an Obsidian vault into live, private context for Claude and any MCP client: who you are, what you are working on, and tools to search, follow links and write back.",
-      "Hybrid retrieval that never leaves the machine — section BM25 and bge-small embeddings fused with RRF, a cross-encoder reranker, and a floor that answers \"nothing relevant\" instead of guessing.",
-      "Public over OAuth 2.1 behind Cloudflare Tunnel, with read, write and private scopes, credential redaction and an audit line for every call. Any ranking change has to beat the bundled evals first.",
-    ],
-    tags: ["TypeScript", "MCP", "SQLite FTS5", "Embeddings", "OAuth 2.1"],
   },
 ];
 
