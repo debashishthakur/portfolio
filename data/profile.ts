@@ -169,7 +169,7 @@ export const experience: Company[] = [
 
 export type Project = {
   name: string;
-  icon: "lekhak" | "promptcraft" | "meanpdf" | "secondbrain";
+  icon: "secondbrain" | "secor" | "lekhak" | "promptcraft" | "meanpdf";
   site: string | null;
   start: string;
   end: string | null;
@@ -192,6 +192,20 @@ export const projects: Project[] = [
       "Public over OAuth 2.1 behind Cloudflare Tunnel, with read, write and private scopes, credential redaction and an audit line for every call. Any ranking change has to beat the bundled evals first.",
     ],
     tags: ["TypeScript", "MCP", "SQLite FTS5", "Embeddings", "OAuth 2.1"],
+  },
+  {
+    name: "SECOR",
+    icon: "secor",
+    site: null,
+    start: "10.2026",
+    end: null,
+    href: "https://github.com/debashishthakur/secor",
+    bullets: [
+      "Local security tool for people who build with AI: it statically checks the APIs, websites and MCP servers you ship, vets the third-party MCP servers you connect to your agent, and guards every tool call that agent makes.",
+      "25 deterministic rules across Express, Next.js, FastAPI, Vite and the MCP SDKs, plus an opt-in prober that confirms a flaw against a staging target you own — and flatly refuses anything you can't prove you control.",
+      "No telemetry, no LLM in the engine, redaction on every output, and it never calls a system \"secure\". 1,368 tests, and it scans its own source clean.",
+    ],
+    tags: ["TypeScript", "AppSec", "MCP", "tree-sitter"],
   },
   {
     name: "LekhakAI",

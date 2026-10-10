@@ -1,4 +1,4 @@
-import { ChevronsDownUp, FileText, Globe, Link2, Lock, Terminal } from "lucide-react";
+import { ChevronsDownUp, FileText, Globe, Link2, Lock, ShieldCheck, Terminal } from "lucide-react";
 import { Panel, PanelHeader, Tag } from "@/components/panel";
 import { projects, type Project } from "@/data/profile";
 
@@ -11,6 +11,13 @@ function ProjectMark({ icon }: { icon: Project["icon"] }) {
   const chrome =
     "grid size-10 shrink-0 place-items-center rounded-xl ring-1 ring-black/10 ring-inset select-none dark:ring-white/15";
 
+  if (icon === "secor") {
+    return (
+      <span className={`${chrome} bg-[#0e7490] text-white`} aria-hidden="true">
+        <ShieldCheck className="size-5" strokeWidth={1.75} />
+      </span>
+    );
+  }
   if (icon === "lekhak") {
     return (
       <span className={`${chrome} bg-[#161022]`} aria-hidden="true">
